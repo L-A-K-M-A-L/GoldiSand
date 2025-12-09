@@ -1,0 +1,248 @@
+// Colors
+$primary-gold: #D4AF37;
+$primary-gold-dark: #B8941F;
+$text-dark: #eff0ec;
+$text-gray: #d5d8db;
+$white: #FFFFFF;
+$bg-overlay: rgba(92, 88, 39, 0.95);
+$hover-bg: #F9FAFB;
+$active-bg: #FEF3C7;
+
+// Breakpoints
+$breakpoint-md: 768px;
+
+// Transitions
+$transition-fast: 0.3s ease;
+
+/* Put these at the top */
+.headerTransparent {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.headerColored {
+  background: $bg-overlay !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Your existing SCSS below... */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.logoWrapper {
+  display: flex;
+  flex-direction: column;
+//   justify-content: center;
+  align-items: center;
+//   gap: 0.15rem;
+.hotelName {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: $primary-gold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: 0.625rem;
+  }
+}
+  img {
+    height: 2.5rem;
+    width: auto;
+    object-fit: contain;
+    transition: transform $transition-fast;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  @media (min-width: $breakpoint-md) {
+    display: flex;
+  }
+}
+
+.contactBtn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: $text-gray;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all $transition-fast;
+  
+  &:hover {
+    background: $primary-gold;
+    color: $white;
+  }
+  
+  &.active {
+    background: $primary-gold;
+    color: $white;
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    display: block;
+  }
+}
+
+.navItem {
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: $text-gray;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $primary-gold;
+  }
+  
+  &.active {
+    color: $primary-gold;
+  }
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: $primary-gold;
+  border-radius: 9999px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.mobileMenuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  color: $text-gray;
+  cursor: pointer;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $primary-gold;
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.menuIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mobileMenu {
+  display: none;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  
+  &.open {
+    display: block;
+    animation: fadeIn 0.2s ease;
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    display: none !important;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobileNavItem {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $text-gray;
+  cursor: pointer;
+  transition: all $transition-fast;
+  
+  &:hover {
+    background: $hover-bg;
+    color: $text-dark;
+  }
+  
+  &.active {
+    background: $active-bg;
+    color: $primary-gold;
+  }
+}

@@ -1,0 +1,124 @@
+$gold: #d4af37;
+$dark: #1a1a1a;
+$light: #ffffff;
+
+/* MAIN SECTION */
+.aboutSection {
+  padding: 6rem 1.5rem;
+  background: #cbbf9a;
+  opacity: 0.95;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+
+/* CONTAINER */
+.container {
+//   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+//   max-width: 900px;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/* CONTENT */
+.content {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #64541d;
+  margin-bottom: 1rem;
+
+  &:after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: #7b6715;
+    display: block;
+    margin: 0.5rem auto 0;
+    border-radius: 999px;
+  }
+}
+
+.text {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  color: #64541d;
+  margin-top: 1rem;
+}
+
+/* ⭐ ICON GRID (Responsive) ⭐ */
+.iconGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+  background: #ded8bec9;
+  width: 100%;
+  padding: 2rem 1rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 450px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* INDIVIDUAL ICON CARD */
+.iconCard {
+  padding: 0.5rem;
+  border-radius: 15px;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+
+  &:hover {
+    background: #cbbf9a;
+    // border-color: darken($gold, 10%);
+    transform: translateY(-5px);
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+    transition: 0.3s ease;
+    opacity: 0.8;
+  }
+
+  &:hover img {
+    filter: brightness(0);
+  }
+
+  p {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #333;
+  }
+
+  &:hover p {
+    color: $dark;
+  }
+}

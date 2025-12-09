@@ -1,0 +1,121 @@
+$gold: #d4af37;
+$dark: #1a1a1a;
+
+/* Top-level wrapper */
+.contactPage {
+  width: 100%;
+  min-height: 100vh;
+  background: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Card container (responsive grid) */
+.contactContainer {
+  width: 100%;
+  max-width: 1200px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* LEFT SIDE */
+.contactLeft {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: $dark;
+  }
+
+  .subtitle {
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .infoBox {
+    margin-bottom: 20px;
+
+    .infoItem {
+      margin-bottom: 15px;
+
+      h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      p {
+        color: #555;
+
+        a {
+          color: $dark;
+          text-decoration: none;
+          &:hover {
+            color: $gold;
+          }
+        }
+      }
+    }
+  }
+
+  .contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    input,
+    textarea {
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      outline: none;
+      font-size: 15px;
+      transition: 0.3s;
+
+      &:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 4px rgba(59,130,246,0.08);
+      }
+    }
+
+    button {
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: $gold;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        background: darken($gold, 8%);
+      }
+    }
+  }
+}
+
+/* RIGHT SIDE - MAP */
+.contactRight {
+  iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
